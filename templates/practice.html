@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>проект.параболограф | Практические задания</title>
+    <meta name="description" content="проект.параболограф — интерактивные задания по параболе и квадратичной функции с автоматической проверкой ответов.">
+    <meta name="keywords" content="задания по параболе, квадратичная функция задачи, проверка знаний математика, проект параболограф">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico">
+    <style>
+        .task-block {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .task-block:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .task-input {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .task-input input {
+            padding: 10px 14px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 220px;
+            transition: border-color 0.3s;
+        }
+        .task-input input:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        .task-input button {
+            padding: 10px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .task-input button:hover {
+            background: #5a67d8;
+        }
+        .result {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .result.correct {
+            color: #27ae60;
+        }
+        .result.wrong {
+            color: #e74c3c;
+        }
+        details {
+            margin-top: 12px;
+        }
+        details summary {
+            color: #667eea;
+            cursor: pointer;
+            font-weight: 500;
+            padding: 5px 0;
+        }
+        details p {
+            margin-top: 8px;
+            padding: 12px;
+            background: #e9ecef;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+        .hint {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="fixed-nav">
+    <a href="/">Главная</a>
+    <a href="/graph">График</a>
+    <a href="/theory">Теория</a>
+    <a href="/formulas">Формулы</a>
+    <a href="/practice">Практика</a>
+    <a href="/interesting">Интересно</a>
+</nav>
+
+<div class="container">
+    <h1>✏️ проект.параболограф — практические задания</h1>
+    <p class="subtitle">Проверьте свои знания о параболе и квадратичной функции. Введите ответ и нажмите «Проверить».</p>
+
+    <!-- Задание 1 -->
+    <div class="task-block">
+        <h2>Задание 1</h2>
+        <p>Определите направление ветвей параболы <strong>y = -2x² + 4x - 1</strong>.</p>
+        <div class="task-input">
+            <input type="text" id="answer1" placeholder="вверх или вниз">
+            <button onclick="checkAnswer(1, 'вниз')">Проверить</button>
+            <span id="result1" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>Ветви направлены <strong>вниз</strong>, так как коэффициент a = -2 < 0.</p>
+        </details>
+    </div>
+
+    <!-- Задание 2 -->
+    <div class="task-block">
+        <h2>Задание 2</h2>
+        <p>Найдите координаты вершины параболы <strong>y = x² - 4x + 3</strong>.</p>
+        <p class="hint">Введите в формате: x,y (например: 2,-1)</p>
+        <div class="task-input">
+            <input type="text" id="answer2" placeholder="x,y">
+            <button onclick="checkAnswer(2, '2,-1')">Проверить</button>
+            <span id="result2" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>x₀ = -(-4)/(2·1) = 2, y₀ = 2² - 4·2 + 3 = 4 - 8 + 3 = -1. <strong>Вершина (2; -1)</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 3 -->
+    <div class="task-block">
+        <h2>Задание 3</h2>
+        <p>Найдите ось симметрии параболы <strong>y = 3x² + 6x - 2</strong>.</p>
+        <div class="task-input">
+            <input type="text" id="answer3" placeholder="x = ?">
+            <button onclick="checkAnswer(3, '-1')">Проверить</button>
+            <span id="result3" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>Ось симметрии: x = -b/(2a) = -6/(6) = <strong>-1</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 4 -->
+    <div class="task-block">
+        <h2>Задание 4</h2>
+        <p>Найдите точку пересечения параболы <strong>y = 2x² - 3x + 4</strong> с осью Y.</p>
+        <p class="hint">Введите в формате: x,y (например: 0,4)</p>
+        <div class="task-input">
+            <input type="text" id="answer4" placeholder="x,y">
+            <button onclick="checkAnswer(4, '0,4')">Проверить</button>
+            <span id="result4" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>При x = 0, y = 4. Точка <strong>(0; 4)</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 5 -->
+    <div class="task-block">
+        <h2>Задание 5</h2>
+        <p>Вычислите дискриминант уравнения <strong>x² - 5x + 6 = 0</strong> и определите количество корней.</p>
+        <p class="hint">Введите: D, количество (например: 1,2)</p>
+        <div class="task-input">
+            <input type="text" id="answer5" placeholder="D, количество">
+            <button onclick="checkAnswer(5, '1,2')">Проверить</button>
+            <span id="result5" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>D = 25 - 24 = <strong>1</strong> > 0 → <strong>2</strong> корня.</p>
+        </details>
+    </div>
+
+    <!-- Задание 6 -->
+    <div class="task-block">
+        <h2>Задание 6</h2>
+        <p>Найдите корни уравнения <strong>x² - 7x + 10 = 0</strong>.</p>
+        <p class="hint">Введите через запятую: x1,x2 (например: 5,2)</p>
+        <div class="task-input">
+            <input type="text" id="answer6" placeholder="x1,x2">
+            <button onclick="checkAnswer(6, '5,2')">Проверить</button>
+            <span id="result6" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>D = 49 - 40 = 9, √D = 3. x₁ = (7+3)/2 = <strong>5</strong>, x₂ = (7-3)/2 = <strong>2</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 7 -->
+    <div class="task-block">
+        <h2>Задание 7</h2>
+        <p>При каком значении a парабола <strong>y = ax² - 4x + 1</strong> имеет вершину в точке x = 2?</p>
+        <div class="task-input">
+            <input type="text" id="answer7" placeholder="a = ?">
+            <button onclick="checkAnswer(7, '1')">Проверить</button>
+            <span id="result7" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>x₀ = -b/(2a) = 4/(2a) = 2 → 4 = 4a → <strong>a = 1</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 8 -->
+    <div class="task-block">
+        <h2>Задание 8</h2>
+        <p>Найдите значение функции <strong>y = 3x² - 2x + 5</strong> в точке x = -1.</p>
+        <div class="task-input">
+            <input type="text" id="answer8" placeholder="y = ?">
+            <button onclick="checkAnswer(8, '10')">Проверить</button>
+            <span id="result8" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>y = 3·(-1)² - 2·(-1) + 5 = 3 + 2 + 5 = <strong>10</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 9 -->
+    <div class="task-block">
+        <h2>Задание 9</h2>
+        <p>Запишите параболу <strong>y = 2x² - 8x + 6</strong> в каноническом виде.</p>
+        <p class="hint">Формат: a(x - h)² + k (например: 2(x-2)^2-2)</p>
+        <div class="task-input">
+            <input type="text" id="answer9" placeholder="канонический вид">
+            <button onclick="checkAnswer(9, '2(x-2)^2-2')">Проверить</button>
+            <span id="result9" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>y = <strong>2(x - 2)² - 2</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 10 -->
+    <div class="task-block">
+        <h2>Задание 10</h2>
+        <p>Найдите расстояние от фокуса до директрисы для параболы <strong>y = 4x²</strong>.</p>
+        <div class="task-input">
+            <input type="text" id="answer10" placeholder="расстояние">
+            <button onclick="checkAnswer(10, '0.125')">Проверить</button>
+            <span id="result10" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>p = 1/(4·4) = 1/16 = 0.0625, расстояние = 2p = <strong>0.125</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 11 -->
+    <div class="task-block">
+        <h2>Задание 11</h2>
+        <p>Определите знак коэффициента a, если парабола имеет вершину в точке (3; 5) и ветви направлены вниз.</p>
+        <div class="task-input">
+            <input type="text" id="answer11" placeholder="знак (a < 0 или a > 0)">
+            <button onclick="checkAnswer(11, 'a < 0')">Проверить</button>
+            <span id="result11" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>Ветви вниз → <strong>a < 0</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 12 -->
+    <div class="task-block">
+        <h2>Задание 12</h2>
+        <p>Найдите сумму корней уравнения <strong>2x² - 8x + 6 = 0</strong> по теореме Виета.</p>
+        <div class="task-input">
+            <input type="text" id="answer12" placeholder="сумма">
+            <button onclick="checkAnswer(12, '4')">Проверить</button>
+            <span id="result12" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>x₁ + x₂ = -b/a = 8/2 = <strong>4</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 13 -->
+    <div class="task-block">
+        <h2>Задание 13</h2>
+        <p>Найдите произведение корней уравнения <strong>x² - 5x + 6 = 0</strong>.</p>
+        <div class="task-input">
+            <input type="text" id="answer13" placeholder="произведение">
+            <button onclick="checkAnswer(13, '6')">Проверить</button>
+            <span id="result13" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>x₁·x₂ = c/a = <strong>6</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 14 -->
+    <div class="task-block">
+        <h2>Задание 14</h2>
+        <p>Парабола проходит через точки (0; 3), (1; 0) и (2; -1). Найдите коэффициенты a, b, c.</p>
+        <p class="hint">Введите в формате: a,b,c (например: 1,-4,3)</p>
+        <div class="task-input">
+            <input type="text" id="answer14" placeholder="a,b,c">
+            <button onclick="checkAnswer(14, '1,-4,3')">Проверить</button>
+            <span id="result14" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>Из (0;3): c = 3. Из (1;0): a + b + 3 = 0 → a + b = -3. Из (2;-1): 4a + 2b + 3 = -1 → 4a + 2b = -4 → 2a + b = -2. Вычитаем: (2a+b) - (a+b) = -2 - (-3) → a = 1, b = -4. <strong>a = 1, b = -4, c = 3</strong>.</p>
+        </details>
+    </div>
+
+    <!-- Задание 15 -->
+    <div class="task-block">
+        <h2>Задание 15</h2>
+        <p>При каком значении a парабола <strong>y = ax² - 2ax + 3</strong> имеет вершину в точке x = 1?</p>
+        <div class="task-input">
+            <input type="text" id="answer15" placeholder="a = ?">
+            <button onclick="checkAnswer(15, 'любое')">Проверить</button>
+            <span id="result15" class="result"></span>
+        </div>
+        <details>
+            <summary>📖 Показать ответ</summary>
+            <p>x₀ = -(-2a)/(2a) = 2a/(2a) = 1 для любого a ≠ 0. Ответ: <strong>любое a ≠ 0</strong>.</p>
+        </details>
+    </div>
+</div>
+
+<script>
+function checkAnswer(taskNumber, correctAnswer) {
+    const inputField = document.getElementById(`answer${taskNumber}`);
+    const resultSpan = document.getElementById(`result${taskNumber}`);
+    const userAnswer = inputField.value.trim().toLowerCase().replace(/\s/g, '');
+    const normalizedCorrect = correctAnswer.toLowerCase().replace(/\s/g, '');
+    
+    if (userAnswer === normalizedCorrect) {
+        resultSpan.innerHTML = '✅ Правильно! Молодец! 🎉';
+        resultSpan.className = 'result correct';
+    } else {
+        resultSpan.innerHTML = `❌ Неправильно. Правильный ответ: ${correctAnswer}`;
+        resultSpan.className = 'result wrong';
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>проект.параболограф | Формулы параболы</title>
+    <meta name="description" content="проект.параболограф — все формулы для работы с параболой и квадратичной функцией: вершина, дискриминант, корни, фокус, директриса.">
+    <meta name="keywords" content="формулы параболы, квадратичная функция, вершина параболы, дискриминант, корни уравнения, проект параболограф">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<nav class="fixed-nav">
+    <a href="/">Главная</a>
+    <a href="/graph">График</a>
+    <a href="/theory">Теория</a>
+    <a href="/formulas">Формулы</a>
+    <a href="/practice">Практика</a>
+    <a href="/interesting">Интересно</a>
+</nav>
+
+<div class="container">
+    <h1>📐 проект.параболограф — основные формулы параболы</h1>
+    <p class="subtitle">Все необходимые формулы для работы с квадратичной функцией</p>
+
+    <div class="content-block">
+        <h2>1. Общий вид квадратичной функции</h2>
+        <p><strong>y = ax² + bx + c</strong>, где a ≠ 0, a, b, c ∈ ℝ</p>
+        <p><strong>Пример:</strong> y = 2x² - 3x + 1 (a = 2, b = -3, c = 1)</p>
+    </div>
+
+    <div class="content-block">
+        <h2>2. Вершина параболы</h2>
+        <p><strong>x₀ = -b/(2a)</strong></p>
+        <p><strong>y₀ = c - b²/(4a)</strong> или <strong>y₀ = a·x₀² + b·x₀ + c</strong></p>
+        <p><strong>Пример:</strong> Для y = 2x² - 8x + 6: x₀ = 8/(4) = 2, y₀ = 2·4 - 16 + 6 = -2. Вершина (2; -2).</p>
+    </div>
+
+    <div class="content-block">
+        <h2>3. Ось симметрии</h2>
+        <p><strong>x = -b/(2a)</strong></p>
+        <p><strong>Пример:</strong> Для y = x² - 4x + 3: ось симметрии x = 2.</p>
+    </div>
+
+    <div class="content-block">
+        <h2>4. Дискриминант и корни</h2>
+        <p><strong>D = b² - 4ac</strong></p>
+        <p><strong>Корни:</strong> x₁,₂ = (-b ± √D)/(2a)</p>
+        <p><strong>Пример:</strong> Для y = x² - 5x + 6: D = 25 - 24 = 1, x₁ = (5 + 1)/2 = 3, x₂ = (5 - 1)/2 = 2.</p>
+    </div>
+
+    <div class="content-block">
+        <h2>5. Канонический вид</h2>
+        <p><strong>y = a(x - x₀)² + y₀</strong></p>
+        <p>где (x₀; y₀) — координаты вершины.</p>
+        <p><strong>Пример:</strong> y = 2x² - 8x + 6 = 2(x - 2)² - 2</p>
+    </div>
+
+    <div class="content-block">
+        <h2>6. Фокус и директриса</h2>
+        <p>Для параболы y = a(x - x₀)² + y₀ (a ≠ 0):</p>
+        <p><strong>Фокус:</strong> F(x₀; y₀ + 1/(4a)) (при a > 0) или F(x₀; y₀ - 1/(4a)) (при a < 0)</p>
+        <p><strong>Директриса:</strong> y = y₀ - 1/(4a) (при a > 0) или y = y₀ + 1/(4a) (при a < 0)</p>
+        <p><strong>Пример:</strong> Для y = 2x²: x₀ = 0, y₀ = 0, p = 1/(8) = 0.125, фокус (0; 0.125), директриса y = -0.125.</p>
+    </div>
+
+    <div class="content-block">
+        <h2>7. Свойства коэффициентов</h2>
+        <ul>
+            <li><strong>a > 0</strong> — ветви вверх; <strong>a < 0</strong> — ветви вниз</li>
+            <li><strong>|a|</strong> — влияет на ширину параболы (чем больше |a|, тем уже парабола)</li>
+            <li><strong>b</strong> — влияет на смещение вершины по оси X</li>
+            <li><strong>c</strong> — точка пересечения с осью Y (0; c)</li>
+        </ul>
+    </div>
+
+    <div class="content-block">
+        <h2>8. Теорема Виета</h2>
+        <p>Если x₁ и x₂ — корни квадратного уравнения ax² + bx + c = 0, то:</p>
+        <p><strong>x₁ + x₂ = -b/a</strong></p>
+        <p><strong>x₁·x₂ = c/a</strong></p>
+        <p><strong>Пример:</strong> Для x² - 5x + 6 = 0: сумма = 5, произведение = 6.</p>
+    </div>
+</div>
+
+</body>
+</html>

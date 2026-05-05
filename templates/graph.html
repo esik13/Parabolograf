@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>проект.параболограф | Интерактивный график параболы</title>
+    <meta name="description" content="проект.параболограф — построение графика параболы онлайн. Изменяйте коэффициенты a, b, c и наблюдайте за изменением формы кривой.">
+    <meta name="keywords" content="график параболы, построить параболу, квадратичная функция, интерактивный график, проект параболограф">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+
+<nav class="fixed-nav">
+    <a href="/">Главная</a>
+    <a href="/graph">График</a>
+    <a href="/theory">Теория</a>
+    <a href="/formulas">Формулы</a>
+    <a href="/practice">Практика</a>
+    <a href="/interesting">Интересно</a>
+</nav>
+
+<div class="container">
+    <h1>📊 проект.параболограф — интерактивный график параболы</h1>
+    <p class="subtitle">Изменяйте коэффициенты и наблюдайте, как меняется форма параболы в реальном времени</p>
+
+    <div class="graph-controls-large">
+        <h2>Коэффициенты квадратичной функции y = ax² + bx + c</h2>
+        
+        <div class="input-group-large">
+            <label for="a">Коэффициент a (определяет направление ветвей и крутизну):</label>
+            <input id="a" type="number" value="1" step="0.1" oninput="draw()">
+            <span class="hint">a > 0 — ветви вверх, a < 0 — ветви вниз | чем больше |a|, тем уже парабола</span>
+        </div>
+        
+        <div class="input-group-large">
+            <label for="b">Коэффициент b (влияет на смещение вершины по оси X):</label>
+            <input id="b" type="number" value="0" step="0.1" oninput="draw()">
+            <span class="hint">x₀ = -b/(2a) — координата вершины по оси X</span>
+        </div>
+        
+        <div class="input-group-large">
+            <label for="c">Коэффициент c (определяет пересечение с осью Y):</label>
+            <input id="c" type="number" value="0" step="0.1" oninput="draw()">
+            <span class="hint">при x = 0, y = c — точка пересечения с осью Y</span>
+        </div>
+        
+        <div class="input-group-large">
+            <label for="scale">Масштаб графика (чем больше, тем крупнее):</label>
+            <input id="scale" type="range" min="10" max="60" value="30" step="5" oninput="updateScale()">
+            <span id="scaleValue" class="hint">30</span>
+        </div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="canvas" width="800" height="450"></canvas>
+    </div>
+
+    <div class="info-panel-large">
+        <h2>📌 Информация о текущей параболе</h2>
+        <p><strong>Уравнение:</strong> <span id="formulaDisplay">y = 1.00x² + 0.00x + 0.00</span></p>
+        <p><strong>Вершина:</strong> <span id="vertex">(0.00; 0.00)</span></p>
+        <p><strong>Ось симметрии:</strong> <span id="axis">x = 0.00</span></p>
+        <p><strong>Пересечение с осью Y:</strong> <span id="yIntercept">(0.00; 0.00)</span></p>
+        <p><strong>Дискриминант:</strong> <span id="discriminant">0.00</span></p>
+        <p><strong>Корни уравнения ax² + bx + c = 0:</strong> <span id="roots">x = 0.00</span></p>
+        <p><strong>Направление ветвей:</strong> <span id="direction">вверх</span></p>
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
